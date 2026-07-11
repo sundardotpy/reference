@@ -4,471 +4,257 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CX References</title>
+  <link rel="stylesheet" href="styles.css" />
   <style>
-    :root {
-      --green: #05a54b;
-      --green-dark: #065f2e;
-      --green-deep: #048a3e;
-      --green-light: #e8f8ee;
-      --green-mid: #b3e8c9;
-      --text: #111827;
-      --body: #374151;
-      --soft: #6b7280;
-      --border: #e5e7eb;
-      --surface: #ffffff;
-      --page: #f9fafb;
-      --shadow: 0 16px 44px rgba(17, 24, 39, 0.08);
-      --shadow-soft: 0 8px 24px rgba(17, 24, 39, 0.06);
-    }
+    .page-pad { padding: 0 0 64px; }
 
-    * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      background: var(--surface);
-      color: var(--body);
-      line-height: 1.6;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      background:
-        radial-gradient(circle at 12% 8%, rgba(5, 165, 75, 0.10), transparent 28%),
-        radial-gradient(circle at 86% 0%, rgba(5, 165, 75, 0.06), transparent 26%),
-        linear-gradient(180deg, #ffffff 0%, #ffffff 45%, #f9fafb 100%);
-    }
-
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      opacity: 0.36;
-      background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
-      background-size: 22px 22px;
-      mask-image: linear-gradient(to bottom, black 0%, transparent 66%);
-    }
-
-    a { color: inherit; }
-
-    .page {
-      width: min(1180px, calc(100% - 36px));
-      margin: 0 auto;
-      padding: 32px 0 48px;
-    }
-
-    .topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 20px;
-      padding: 14px 16px;
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(14px);
-      box-shadow: 0 1px 0 rgba(17, 24, 39, 0.03);
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--text);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-    }
-
-    .brand-mark {
-      width: 36px;
-      height: 36px;
-      border-radius: 11px;
-      background: var(--green);
-      box-shadow: 0 10px 22px rgba(5, 165, 75, 0.20);
-    }
-
-    .top-label {
-      padding: 7px 11px;
-      border-radius: 999px;
-      background: var(--green-light);
-      border: 1px solid var(--green-mid);
-      color: var(--green-dark);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-
-    .hero {
-      position: relative;
-      overflow: hidden;
-      padding: 38px;
-      border: 1px solid var(--border);
-      border-radius: 34px;
-      background: rgba(255, 255, 255, 0.95);
-      box-shadow: var(--shadow);
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      width: 440px;
-      height: 440px;
-      right: -200px;
-      top: -235px;
-      border-radius: 50%;
-      background: var(--green-light);
-      border: 1px solid var(--green-mid);
-    }
-
-    .hero-content {
-      position: relative;
-      max-width: 760px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      margin-bottom: 18px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: var(--green-light);
-      color: var(--green-dark);
-      border: 1px solid var(--green-mid);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    h1, h2, h3 {
-      margin: 0;
-      color: var(--text);
-      line-height: 1.12;
-      letter-spacing: -0.04em;
-    }
-
-    h1 {
-      font-size: clamp(34px, 5.5vw, 64px);
-      max-width: 760px;
-    }
-
-    h1 span { color: var(--green); }
-
-    .hero-copy {
-      margin: 18px 0 0;
-      max-width: 720px;
-      color: var(--body);
-      font-size: 18px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 28px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 44px;
-      padding: 11px 18px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: var(--surface);
-      color: var(--text);
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 800;
-      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-      box-shadow: var(--shadow-soft);
-      border-color: var(--green-mid);
-    }
-
-    .btn.primary {
-      background: var(--green);
-      color: #ffffff;
-      border-color: var(--green);
-      box-shadow: 0 12px 26px rgba(5, 165, 75, 0.20);
-    }
-
-    .btn.primary:hover { background: var(--green-deep); }
-
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      align-items: end;
-      margin: 34px 0 16px;
-    }
-
-    .section-head h2 { font-size: clamp(24px, 3vw, 34px); }
-
-    .section-head p {
-      margin: 8px 0 0;
-      max-width: 660px;
-      color: var(--soft);
-    }
+    .hero { padding: 56px 0 28px; }
 
     .search-wrap {
-      min-width: min(360px, 100%);
+      margin-top: 28px;
       display: flex;
       align-items: center;
       gap: 10px;
-      padding: 10px 14px;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      background: #ffffff;
-      box-shadow: 0 8px 22px rgba(17, 24, 39, 0.04);
+      padding: 13px 18px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--line);
+      background: var(--card);
+      box-shadow: var(--shadow-soft);
+      max-width: 560px;
     }
 
-    .search-label {
-      color: var(--soft);
-      font-size: 13px;
-      font-weight: 800;
-      white-space: nowrap;
-    }
+    .search-wrap svg { flex: 0 0 auto; color: var(--ink-faint); }
 
     .search-wrap input {
       width: 100%;
       border: 0;
       outline: 0;
       background: transparent;
-      color: var(--text);
-      font-size: 14px;
+      color: var(--ink);
+      font-size: 14.5px;
       font-family: inherit;
     }
 
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .sop-card {
-      position: relative;
+    .count-row {
       display: flex;
-      flex-direction: column;
-      min-height: 232px;
-      padding: 18px;
-      border-radius: 22px;
-      border: 1px solid var(--border);
-      background: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 1px 0 rgba(17, 24, 39, 0.04);
-      text-decoration: none;
-      overflow: hidden;
-      transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
-    }
-
-    .sop-card::before {
-      content: "";
-      position: absolute;
-      inset: 0 0 auto 0;
-      height: 4px;
-      background: var(--green);
-    }
-
-    .sop-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--green-mid);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .card-top {
-      display: flex;
+      align-items: baseline;
       justify-content: space-between;
-      gap: 10px;
-      align-items: start;
-      margin-bottom: 16px;
+      margin: 44px 0 14px;
+      padding-top: 28px;
+      border-top: 1px solid var(--line);
     }
 
-    .code-box {
-      width: 42px;
-      height: 42px;
-      display: grid;
-      place-items: center;
-      border-radius: 14px;
-      background: var(--green-light);
-      color: var(--green-dark);
-      border: 1px solid var(--green-mid);
-      font-size: 12px;
-      font-weight: 900;
-      letter-spacing: 0.04em;
-      flex: 0 0 auto;
-    }
-
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 5px 9px;
-      border-radius: 999px;
-      background: var(--page);
-      border: 1px solid var(--border);
-      color: var(--soft);
-      font-size: 11px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      white-space: nowrap;
-    }
-
-    .sop-card h3 {
-      margin-bottom: 9px;
-      font-size: 18px;
-      letter-spacing: -0.03em;
-    }
-
-    .sop-card p {
+    .count-row h2 {
       margin: 0;
-      color: var(--soft);
-      font-size: 13.5px;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
     }
 
-    .open-row {
-      margin-top: auto;
-      padding-top: 18px;
-      color: var(--green-dark);
-      font-size: 13px;
-      font-weight: 900;
+    .rows { display: flex; flex-direction: column; gap: 10px; }
+
+    .sop-row {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 18px 20px;
+      text-decoration: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
     }
+
+    .sop-row:hover {
+      border-color: var(--green-border);
+      box-shadow: var(--shadow-soft);
+      transform: translateY(-2px);
+    }
+
+    .sop-row-body { flex: 1; min-width: 0; }
+
+    .sop-row-top {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .sop-row-top h3 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+
+    .sop-row p {
+      margin: 6px 0 0;
+      font-size: 13.5px;
+      color: var(--ink-soft);
+      max-width: 640px;
+    }
+
+    .sop-row-meta {
+      margin-top: 8px;
+      font-size: 11.5px;
+      color: var(--ink-faint);
+      font-weight: 600;
+    }
+
+    .sop-row-action { flex: 0 0 auto; }
 
     .hidden { display: none !important; }
 
-    @media (max-width: 1020px) {
-      .cards-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .section-head { align-items: stretch; flex-direction: column; }
-      .search-wrap { width: 100%; }
-    }
-
     @media (max-width: 680px) {
-      .page { width: min(100% - 24px, 1180px); padding-top: 18px; }
-      .topbar { align-items: start; flex-direction: column; }
-      .hero { padding: 24px; border-radius: 26px; }
-      .cards-grid { grid-template-columns: 1fr; }
-      h1 { font-size: 34px; }
+      .sop-row { flex-wrap: wrap; }
+      .sop-row-action { width: 100%; }
+      .sop-row-action .cxw-btn { width: 100%; }
     }
   </style>
 </head>
-<body>
-  <main class="page">
-    <header class="topbar" aria-label="Top bar">
-      <div class="brand">
-        <div class="brand-mark" aria-hidden="true"></div>
+<body class="cxw-body cxw-reset">
+  <header class="cxw-topbar">
+    <div class="cxw-topbar-inner">
+      <a class="cxw-brand" href="index.html">
+        <img src="icon.png" alt="" />
         <span>CX References</span>
+      </a>
+      <div class="cxw-topbar-actions">
+        <span class="cxw-pill-black">Support SOPs</span>
       </div>
-      <div class="top-label">Support SOPs</div>
-    </header>
+    </div>
+  </header>
 
-    <!-- <section class="hero">
-      <div class="hero-content">
-        <div class="eyebrow">Support SOP Library</div>
-        <h1>One landing page for all <span>support SOPs</span>.</h1>
-        <p class="hero-copy">
-          A clean CX reference hub to open process guides, workflows, calculation references, and user-facing support SOPs from one place.
-        </p>
-        <div class="hero-actions">
-          <a class="btn primary" href="#support-sops">View support SOPs</a>
-          <a class="btn" href="RFQ_bond_order%20cycle.html">Open RFQ Bond Order Cycle</a>
-        </div>
-      </div>
-    </section> -->
+  <main class="cxw-wrap page-pad">
+    <section class="hero">
+      <div class="cxw-eyebrow">SOP Library</div>
+      <h1 class="cxw-h1">Support SOP reference library</h1>
+      <p class="cxw-lede">Open, search, and reference every process guide, workflow, and calculation doc used by the support team — all in one place.</p>
 
-    <section id="support-sops">
-      <div class="section-head">
-        <div>
-          <h2>Support SOPs</h2>
-          <!-- <p>Use the cards below to quickly choose the right SOP. Each card includes a short description so the team can identify the correct reference without opening every file.</p> -->
-        </div>
-        <label class="search-wrap" for="searchInput" aria-label="Search SOPs">
-          <span class="search-label">Search</span>
-          <input id="searchInput" type="search" placeholder="Search by process, keyword, or topic" autocomplete="off" />
-        </label>
-      </div>
-
-      <div class="cards-grid" id="cardsGrid">
-        <a class="sop-card" href="RFQ_bond_order%20cycle.html" data-title="rfq bond order cycle settlement payment gateway nse ncl order failure refund authentication registered bank">
-          <div class="card-top"><div class="code-box">RFQ</div><span class="tag">Order</span></div>
-          <h3>RFQ Bond Order Cycle</h3>
-          <p>End-to-end bond order flow covering RFQ placement, payment gateway journey, NSE/NCL settlement, failure cases, and refund handling.</p>
-          <div class="open-row">Open SOP</div>
-        </a>
-
-        <a class="sop-card" href="SIP_user_journey.html" data-title="sip user journey autopay mandate deduction settlement bond sip debit cycle">
-          <div class="card-top"><div class="code-box">SIP</div><span class="tag">SIP</span></div>
-          <h3>SIP User Journey</h3>
-          <p>Reference for SIP setup, AutoPay mandate flow, debit cycle, order processing, settlement, and customer communication checkpoints.</p>
-          <div class="open-row">Open SOP</div>
-        </a>
-
-        <a class="sop-card" href="YTM_guide.html" data-title="ytm yield to maturity returns coupon price accrued interest bond explanation">
-          <div class="card-top"><div class="code-box">YTM</div><span class="tag">Returns</span></div>
-          <h3>YTM Guide</h3>
-          <p>Simple agent reference to explain Yield to Maturity, coupon, accrued interest, bond price movement, and customer return expectations.</p>
-          <div class="open-row">Open SOP</div>
-        </a>
-
-        <a class="sop-card" href="Liquidity_deduction%20calculation_with_goal%20seek.html" data-title="liquidity deduction sell price calculation goal seek xirr ytm early exit sell anytime buyer demand">
-          <div class="card-top"><div class="code-box">CAL</div><span class="tag">Sell</span></div>
-          <h3>Liquidity Deduction Calculation</h3>
-          <p>Calculation reference for early exit pricing, 1% YTM adjustment, XIRR logic, buyer-facing pricing, and Goal Seek usage.</p>
-          <div class="open-row">Open SOP</div>
-        </a>
-
-        <a class="sop-card" href="Form121_guide.html" data-title="form 121 tds certificate declaration tax associate filling guide fields">
-          <div class="card-top"><div class="code-box">121</div><span class="tag">TDS</span></div>
-          <h3>Form 121 Guide</h3>
-          <p>Associate guide for understanding Form 121 fields, required details, checks, and how to handle related TDS queries.</p>
-          <div class="open-row">Open SOP</div>
-        </a>
-
-        <a class="sop-card" href="Demat_dis_workflow.html" data-title="demat dis workflow delivery instruction slip bond transfer nsdl transfer offline process">
-          <div class="card-top"><div class="code-box">DIS</div><span class="tag">Demat</span></div>
-          <h3>Demat DIS Workflow</h3>
-          <p>Bond transfer SOP covering DIS process, required documents, offline movement, verification checks, and operations handoff points.</p>
-          <div class="open-row">Open SOP</div>
-        </a>
-
-        <a class="sop-card" href="Demat_account_closure.html" data-title="demat account closure account deletion nsdl zero holdings closure process">
-          <div class="card-top"><div class="code-box">CLS</div><span class="tag">Closure</span></div>
-          <h3>Demat Account Closure</h3>
-          <p>Reference for demat closure flow, zero holding checks, dependencies, pending cases, and user communication during closure requests.</p>
-          <div class="open-row">Open SOP</div>
-        </a>
-
-        <a class="sop-card" href="KYC_huf_onboarding-workflow.html" data-title="kyc huf onboarding workflow demat account documents kyc process">
-          <div class="card-top"><div class="code-box">KYC</div><span class="tag">KYC</span></div>
-          <h3>KYC HUF Onboarding Workflow</h3>
-          <p>Process reference for HUF onboarding stages, document checks, demat setup flow, internal review, and associate action points.</p>
-          <div class="open-row">Open SOP</div>
-        </a>
-      </div>
+      <label class="search-wrap" for="searchInput">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input id="searchInput" type="search" placeholder="Search by process, keyword, or topic" autocomplete="off" />
+      </label>
     </section>
+
+    <div class="count-row">
+      <h2 id="sopCount">8 SOPs</h2>
+    </div>
+
+    <div class="rows" id="cardsGrid">
+      <a class="sop-row cxw-card" href="RFQ_bond_order%20cycle.html" data-title="rfq bond order cycle settlement payment gateway nse ncl order failure refund authentication registered bank">
+        <div class="cxw-chip cxw-chip-green">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+        </div>
+        <div class="sop-row-body">
+          <div class="sop-row-top"><h3>RFQ Bond Order Cycle</h3><span class="cxw-tag">Order</span></div>
+          <p>End-to-end bond order flow covering RFQ placement, payment gateway journey, NSE/NCL settlement, failure cases, and refund handling.</p>
+          <div class="sop-row-meta">DOC · RFQ_bond_order cycle.html</div>
+        </div>
+        <div class="sop-row-action"><span class="cxw-btn cxw-btn-primary">Open SOP</span></div>
+      </a>
+
+      <a class="sop-row cxw-card" href="SIP_user_journey.html" data-title="sip user journey autopay mandate deduction settlement bond sip debit cycle">
+        <div class="cxw-chip cxw-chip-green">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+        </div>
+        <div class="sop-row-body">
+          <div class="sop-row-top"><h3>SIP User Journey</h3><span class="cxw-tag">SIP</span></div>
+          <p>Reference for SIP setup, AutoPay mandate flow, debit cycle, order processing, settlement, and customer communication checkpoints.</p>
+          <div class="sop-row-meta">DOC · SIP_user_journey.html</div>
+        </div>
+        <div class="sop-row-action"><span class="cxw-btn cxw-btn-primary">Open SOP</span></div>
+      </a>
+
+      <a class="sop-row cxw-card" href="YTM_guide.html" data-title="ytm yield to maturity returns coupon price accrued interest bond explanation">
+        <div class="cxw-chip cxw-chip-green">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+        </div>
+        <div class="sop-row-body">
+          <div class="sop-row-top"><h3>YTM Guide</h3><span class="cxw-tag">Returns</span></div>
+          <p>Simple agent reference to explain Yield to Maturity, coupon, accrued interest, bond price movement, and customer return expectations.</p>
+          <div class="sop-row-meta">DOC · YTM_guide.html</div>
+        </div>
+        <div class="sop-row-action"><span class="cxw-btn cxw-btn-primary">Open SOP</span></div>
+      </a>
+
+      <a class="sop-row cxw-card" href="Liquidity_deduction%20calculation_with_goal%20seek.html" data-title="liquidity deduction sell price calculation goal seek xirr ytm early exit sell anytime buyer demand">
+        <div class="cxw-chip cxw-chip-green">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+        </div>
+        <div class="sop-row-body">
+          <div class="sop-row-top"><h3>Liquidity Deduction Calculation</h3><span class="cxw-tag">Sell</span></div>
+          <p>Calculation reference for early exit pricing, 1% YTM adjustment, XIRR logic, buyer-facing pricing, and Goal Seek usage.</p>
+          <div class="sop-row-meta">DOC · Liquidity_deduction calculation_with_goal seek.html</div>
+        </div>
+        <div class="sop-row-action"><span class="cxw-btn cxw-btn-primary">Open SOP</span></div>
+      </a>
+
+      <a class="sop-row cxw-card" href="Form121_guide.html" data-title="form 121 tds certificate declaration tax associate filling guide fields">
+        <div class="cxw-chip cxw-chip-green">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+        </div>
+        <div class="sop-row-body">
+          <div class="sop-row-top"><h3>Form 121 Guide</h3><span class="cxw-tag">TDS</span></div>
+          <p>Associate guide for understanding Form 121 fields, required details, checks, and how to handle related TDS queries.</p>
+          <div class="sop-row-meta">DOC · Form121_guide.html</div>
+        </div>
+        <div class="sop-row-action"><span class="cxw-btn cxw-btn-primary">Open SOP</span></div>
+      </a>
+
+      <a class="sop-row cxw-card" href="Demat_dis_workflow.html" data-title="demat dis workflow delivery instruction slip bond transfer nsdl transfer offline process">
+        <div class="cxw-chip cxw-chip-green">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+        </div>
+        <div class="sop-row-body">
+          <div class="sop-row-top"><h3>Demat DIS Workflow</h3><span class="cxw-tag">Demat</span></div>
+          <p>Bond transfer SOP covering DIS process, required documents, offline movement, verification checks, and operations handoff points.</p>
+          <div class="sop-row-meta">DOC · Demat_dis_workflow.html</div>
+        </div>
+        <div class="sop-row-action"><span class="cxw-btn cxw-btn-primary">Open SOP</span></div>
+      </a>
+
+      <a class="sop-row cxw-card" href="Demat_account_closure.html" data-title="demat account closure account deletion nsdl zero holdings closure process">
+        <div class="cxw-chip cxw-chip-green">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+        </div>
+        <div class="sop-row-body">
+          <div class="sop-row-top"><h3>Demat Account Closure</h3><span class="cxw-tag">Closure</span></div>
+          <p>Reference for demat closure flow, zero holding checks, dependencies, pending cases, and user communication during closure requests.</p>
+          <div class="sop-row-meta">DOC · Demat_account_closure.html</div>
+        </div>
+        <div class="sop-row-action"><span class="cxw-btn cxw-btn-primary">Open SOP</span></div>
+      </a>
+
+      <a class="sop-row cxw-card" href="KYC_huf_onboarding-workflow.html" data-title="kyc huf onboarding workflow demat account documents kyc process">
+        <div class="cxw-chip cxw-chip-green">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+        </div>
+        <div class="sop-row-body">
+          <div class="sop-row-top"><h3>KYC HUF Onboarding Workflow</h3><span class="cxw-tag">KYC</span></div>
+          <p>Process reference for HUF onboarding stages, document checks, demat setup flow, internal review, and associate action points.</p>
+          <div class="sop-row-meta">DOC · KYC_huf_onboarding-workflow.html</div>
+        </div>
+        <div class="sop-row-action"><span class="cxw-btn cxw-btn-primary">Open SOP</span></div>
+      </a>
+    </div>
   </main>
 
   <script>
     const searchInput = document.getElementById('searchInput');
-    const cards = Array.from(document.querySelectorAll('.sop-card'));
+    const rows = Array.from(document.querySelectorAll('.sop-row'));
+    const countEl = document.getElementById('sopCount');
 
     searchInput.addEventListener('input', () => {
       const term = searchInput.value.trim().toLowerCase();
-      cards.forEach((card) => {
-        const text = `${card.dataset.title} ${card.innerText}`.toLowerCase();
-        card.classList.toggle('hidden', term !== '' && !text.includes(term));
+      let visible = 0;
+      rows.forEach((row) => {
+        const text = `${row.dataset.title} ${row.innerText}`.toLowerCase();
+        const match = term === '' || text.includes(term);
+        row.classList.toggle('hidden', !match);
+        if (match) visible += 1;
       });
+      countEl.textContent = `${visible} SOP${visible === 1 ? '' : 's'}`;
     });
   </script>
 </body>

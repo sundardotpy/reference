@@ -1,0 +1,232 @@
+/* ============================================================
+   CX References — shared design system
+   Every page in this folder links this file. Do not duplicate
+   these rules locally — page-specific CSS should only add
+   layout that doesn't exist here, and must reference these
+   custom properties for any color.
+   ============================================================ */
+
+:root {
+  --ink: #1a1a1a;
+  --ink-soft: #6b6b6b;
+  --ink-faint: #9a9a9a;
+  --card: #ffffff;
+  --line: #e7e3da;
+  --page: #faf9f6;
+
+  --green: #059e4a;
+  --green-hover: #048040;
+  --green-bg: #e6f7ec;
+  --green-text: #05803a;
+  --green-border: #c9ecd6;
+
+  --indigo-bg: #eef0fb;
+  --indigo-text: #4a4fc4;
+  --indigo-border: #dee1f5;
+
+  --amber-bg: #fff4e0;
+  --amber-text: #b07a17;
+  --amber-border: #f5e3b8;
+
+  --red-bg: #fdeceb;
+  --red-text: #c8351f;
+  --red-border: #f5cfc8;
+
+  --ink-bg: #1a1a1a;
+  --ink-bg-hover: #333333;
+
+  --radius: 16px;
+  --radius-sm: 10px;
+  --radius-pill: 999px;
+
+  --shadow: 0 16px 40px rgba(26, 26, 26, 0.08);
+  --shadow-soft: 0 10px 24px rgba(26, 26, 26, 0.06);
+
+  --font: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* ---------- base ---------- */
+
+.cxw-reset, .cxw-reset * { box-sizing: border-box; }
+
+body.cxw-body {
+  margin: 0;
+  font-family: var(--font);
+  background: var(--page);
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+.cxw-wrap {
+  width: min(1080px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+/* ---------- top bar (identical on every page) ---------- */
+
+.cxw-topbar {
+  border-bottom: 1px solid var(--line);
+  background: rgba(250, 249, 246, 0.92);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.cxw-topbar-inner {
+  width: min(1080px, calc(100% - 40px));
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 0;
+}
+
+.cxw-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+}
+
+.cxw-brand img {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  display: block;
+}
+
+.cxw-topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cxw-pill-black {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  background: var(--ink-bg);
+  color: #ffffff;
+  border: 1px solid var(--ink-bg);
+  font-size: 12.5px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.15s ease;
+}
+
+.cxw-pill-black:hover { background: var(--ink-bg-hover); }
+
+/* ---------- buttons / pills ---------- */
+
+.cxw-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  font-size: 12.5px;
+  font-weight: 700;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.cxw-btn:hover {
+  border-color: var(--green-border);
+  box-shadow: var(--shadow-soft);
+}
+
+.cxw-btn-primary {
+  background: var(--green);
+  border-color: var(--green);
+  color: #ffffff;
+}
+
+.cxw-btn-primary:hover { background: var(--green-hover); }
+
+/* ---------- badges / eyebrows ---------- */
+
+.cxw-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--green-bg);
+  color: var(--green-text);
+  border: 1px solid var(--green-border);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.cxw-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--line);
+  background: var(--page);
+  color: var(--ink-soft);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+/* ---------- icon chips (resource-type identity) ---------- */
+
+.cxw-chip {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+}
+
+.cxw-chip svg { width: 20px; height: 20px; }
+
+.cxw-chip-indigo { background: var(--indigo-bg); color: var(--indigo-text); }
+.cxw-chip-green  { background: var(--green-bg); color: var(--green-text); }
+
+/* ---------- typography ---------- */
+
+.cxw-h1 {
+  margin: 0;
+  color: var(--ink);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  font-size: clamp(32px, 5vw, 52px);
+}
+
+.cxw-lede {
+  margin: 14px 0 0;
+  max-width: 640px;
+  font-size: 17px;
+  color: var(--ink-soft);
+}
+
+/* ---------- cards ---------- */
+
+.cxw-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}

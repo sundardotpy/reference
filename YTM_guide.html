@@ -7,32 +7,36 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --green: #05a54b;
-    --green-light: #e6f7ee;
-    --green-mid: #b3e6cc;
-    --green-dark: #037a37;
-    --green-deeper: #025c29;
-    --white: #ffffff;
-    --off-white: #f8faf9;
-    --text-dark: #1a2b22;
-    --text-mid: #3d5446;
-    --text-muted: #6b8576;
-    --border: #d4e8dc;
-    --border-light: #eaf4ee;
+    --ink: #202020;
+    --ink-soft: #6b6b6b;
+    --card: #ffffff;
+    --line: #e5e1d8;
+    --page: #faf9f7;
+    --indigo-bg: #eef0fb;
+    --indigo-text: #3c4cb0;
+    --indigo-border: #dee1f5;
+    --green-bg: #e6f7ec;
+    --green-border: #c9ecd6;
+    --amber-bg: #fff4e0;
+    --amber-text: #b07a17;
+    --amber-border: #f5e3b8;
+    --red-bg: #fdeceb;
+    --red-text: #c8351f;
+    --red-border: #f5cfc8;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body {
     font-family: 'DM Sans', sans-serif;
-    background: var(--off-white);
-    color: var(--text-dark);
+    background: var(--page);
+    color: var(--ink);
     font-size: 15px;
     line-height: 1.7;
   }
 
   /* HERO */
   .hero {
-    background: linear-gradient(135deg, var(--green-deeper) 0%, var(--green) 60%, #07c55a 100%);
+    background: linear-gradient(135deg, #036b34 0%, var(--green) 55%, #0bb85e 100%);
     padding: 4rem 2rem 3rem;
     text-align: center;
     position: relative;
@@ -112,8 +116,8 @@
     margin-bottom: 3rem;
   }
   .quick-card {
-    background: white;
-    border: 1px solid var(--border);
+    background: var(--card);
+    border: 1px solid var(--line);
     border-radius: 14px;
     padding: 1.25rem 1.5rem;
     border-top: 3px solid var(--green);
@@ -123,14 +127,14 @@
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.8px;
-    color: var(--green-dark);
+    color: var(--green);
     margin-bottom: 6px;
   }
   .quick-card .value {
     font-family: 'Playfair Display', serif;
     font-size: 17px;
     font-weight: 500;
-    color: var(--text-dark);
+    color: var(--ink);
     line-height: 1.3;
   }
 
@@ -142,32 +146,32 @@
     gap: 12px;
     margin-bottom: 1.5rem;
     padding-bottom: 12px;
-    border-bottom: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--line);
   }
   .section-icon {
     width: 36px; height: 36px; min-width: 36px;
-    background: var(--green-light);
+    background: var(--indigo-bg);
     border-radius: 10px;
     display: flex; align-items: center; justify-content: center;
     font-size: 17px;
-    color: var(--green-dark);
+    color: var(--indigo-text);
   }
   .section-head h2 {
     font-family: 'Playfair Display', serif;
     font-size: 22px;
     font-weight: 500;
-    color: var(--text-dark);
+    color: var(--ink);
   }
   .section-head p {
     font-size: 13px;
-    color: var(--text-muted);
+    color: var(--ink-soft);
     margin-top: 1px;
   }
 
   /* SCRIPT BOX */
   .script-box {
-    background: white;
-    border: 1px solid var(--border);
+    background: var(--card);
+    border: 1px solid var(--line);
     border-radius: 14px;
     padding: 1.75rem;
     margin-bottom: 1.25rem;
@@ -178,8 +182,8 @@
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.8px;
-    color: var(--green-dark);
-    background: var(--green-light);
+    color: var(--indigo-text);
+    background: var(--indigo-bg);
     padding: 4px 10px;
     border-radius: 20px;
     display: inline-block;
@@ -188,24 +192,24 @@
   .script-box h3 {
     font-size: 16px;
     font-weight: 500;
-    color: var(--text-dark);
+    color: var(--ink);
     margin-bottom: 10px;
   }
-  .script-box p { color: var(--text-mid); font-size: 14.5px; margin-bottom: 10px; }
+  .script-box p { color: var(--ink-soft); font-size: 14.5px; margin-bottom: 10px; }
   .script-box p:last-child { margin-bottom: 0; }
 
   /* SPEECH BUBBLE */
   .speech {
-    background: var(--green-light);
+    background: var(--page);
     border-left: 3px solid var(--green);
     border-radius: 0 10px 10px 0;
     padding: 14px 18px;
     margin: 12px 0;
     font-size: 14px;
-    color: var(--text-mid);
+    color: var(--ink-soft);
     font-style: italic;
   }
-  .speech strong { font-style: normal; font-weight: 500; color: var(--green-dark); }
+  .speech strong { font-style: normal; font-weight: 500; color: var(--green); }
 
   /* TABLE */
   .styled-table {
@@ -215,7 +219,7 @@
     margin: 12px 0;
     border-radius: 10px;
     overflow: hidden;
-    border: 1px solid var(--border);
+    border: 1px solid var(--line);
   }
   .styled-table thead tr {
     background: var(--green);
@@ -228,16 +232,16 @@
     font-size: 13px;
     letter-spacing: 0.3px;
   }
-  .styled-table tbody tr { border-bottom: 1px solid var(--border-light); }
-  .styled-table tbody tr:nth-child(even) { background: var(--off-white); }
+  .styled-table tbody tr { border-bottom: 1px solid var(--line); }
+  .styled-table tbody tr:nth-child(even) { background: var(--page); }
   .styled-table tbody tr:last-child { border-bottom: none; }
-  .styled-table td { padding: 10px 14px; color: var(--text-mid); }
-  .styled-table td:first-child { font-weight: 500; color: var(--text-dark); }
+  .styled-table td { padding: 10px 14px; color: var(--ink-soft); }
+  .styled-table td:first-child { font-weight: 500; color: var(--ink); }
 
   /* FAQ ACCORDION */
   .faq-item {
-    background: white;
-    border: 1px solid var(--border);
+    background: var(--card);
+    border: 1px solid var(--line);
     border-radius: 12px;
     margin-bottom: 10px;
     overflow: hidden;
@@ -256,18 +260,18 @@
     font-family: 'DM Sans', sans-serif;
     font-size: 14.5px;
     font-weight: 500;
-    color: var(--text-dark);
+    color: var(--ink);
     transition: background 0.2s;
   }
-  .faq-q:hover { background: var(--off-white); }
-  .faq-q.open { background: var(--green-light); color: var(--green-deeper); }
+  .faq-q:hover { background: var(--page); }
+  .faq-q.open { background: var(--indigo-bg); color: var(--green); }
   .faq-chevron {
     width: 22px; height: 22px; min-width: 22px;
     border-radius: 50%;
-    background: var(--green-light);
+    background: var(--indigo-bg);
     display: flex; align-items: center; justify-content: center;
     font-size: 12px;
-    color: var(--green-dark);
+    color: var(--indigo-text);
     transition: transform 0.25s;
   }
   .faq-q.open .faq-chevron { transform: rotate(180deg); background: var(--green); color: white; }
@@ -275,16 +279,16 @@
     display: none;
     padding: 0 20px 18px;
     font-size: 14px;
-    color: var(--text-mid);
+    color: var(--ink-soft);
     line-height: 1.75;
-    background: white;
+    background: var(--card);
   }
   .faq-a.open { display: block; }
   .faq-a .speech { margin: 10px 0 0; }
 
   /* EXAMPLE BOX */
   .example-box {
-    background: var(--green-deeper);
+    background: #036b34;
     border-radius: 14px;
     padding: 1.75rem;
     color: rgba(255,255,255,0.9);
@@ -295,12 +299,12 @@
     font-weight: 500;
     letter-spacing: 1px;
     text-transform: uppercase;
-    color: var(--green-mid);
+    color: #f3b8b3;
     margin-bottom: 12px;
   }
   .example-box p { font-size: 14.5px; line-height: 1.75; margin-bottom: 8px; }
   .example-box p:last-child { margin-bottom: 0; }
-  .example-box strong { color: #7ffaac; font-weight: 500; }
+  .example-box strong { color: #ffb4ab; font-weight: 500; }
   .example-box .calc-row {
     display: flex;
     justify-content: space-between;
@@ -310,7 +314,7 @@
     font-size: 14px;
   }
   .example-box .calc-row:last-child { border-bottom: none; }
-  .example-box .calc-val { font-weight: 500; color: #7ffaac; }
+  .example-box .calc-val { font-weight: 500; color: #ffb4ab; }
   .example-box .highlight-result {
     background: rgba(255,255,255,0.08);
     border-radius: 8px;
@@ -337,8 +341,8 @@
 
   /* EMPATHY CLOSER */
   .closer {
-    background: white;
-    border: 1px solid var(--border);
+    background: var(--card);
+    border: 1px solid var(--line);
     border-radius: 14px;
     padding: 1.75rem;
     text-align: center;
@@ -348,7 +352,7 @@
     font-family: 'Playfair Display', serif;
     font-size: 20px;
     font-weight: 500;
-    color: var(--text-dark);
+    color: var(--ink);
     margin-bottom: 8px;
   }
   .closer .speech {
@@ -364,8 +368,18 @@
     .quick-grid { grid-template-columns: 1fr 1fr; }
   }
 </style>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<header class="cxw-topbar">
+  <div class="cxw-topbar-inner">
+    <a class="cxw-brand" href="index.html">
+      <img src="icon.png" alt="" />
+      <span>CX References</span>
+    </a>
+  </div>
+</header>
+
 
 <!-- HERO -->
 <div class="hero">
@@ -422,7 +436,7 @@
           <tr><td>Bought at Premium</td><td>&#8377;1,050</td><td>&#8377;1,000</td><td>&#8377;50 loss &#9888;&#65039;</td></tr>
         </tbody>
       </table>
-      <p style="margin-top:10px;">The coupon rate does not capture this gain or loss. <strong style="color:var(--green-dark)">Only YTM does.</strong> That is why we show YTM — it is the complete, honest picture.</p>
+      <p style="margin-top:10px;">The coupon rate does not capture this gain or loss. <strong style="color:var(--green)">Only YTM does.</strong> That is why we show YTM — it is the complete, honest picture.</p>
     </div>
   </div>
 

@@ -6,32 +6,42 @@
   <title>Wint Wealth | Account Deletion Process</title>
   <style>
     :root {
-      --green: #05A54B;
-      --green-light: #E8F8EE;
-      --green-mid: #B3E8C9;
-      --amber: #F59E0B;
-      --amber-light: #FEF3C7;
-      --red: #EF4444;
-      --red-light: #FEE2E2;
-      --blue: #3B82F6;
-      --blue-light: #EFF6FF;
-      --text-primary: #111827;
-      --text-mid: #374151;
-      --text-soft: #6B7280;
-      --grey-light: #F9FAFB;
-      --border: #E5E7EB;
-      --white: #FFFFFF;
-      --green-badge-text: #065F2E;
-      --amber-badge-text: #92400E;
-      --red-badge-text: #991B1B;
-      --blue-badge-text: #1E40AF;
-      --grey-badge-text: #4B5563;
-      --warning-bg: #FFFBEB;
-      --warning-border: #FDE68A;
-      --warning-text: #92400E;
+      --ink: #202020;
+      --ink-soft: #6b6b6b;
+      --card: #ffffff;
+      --line: #e5e1d8;
+      --page: #faf9f7;
+      --green: #059e4a;
+      --green-hover: #048040;
+      --green-light: #e6f7ec;
+      --green-mid: #c9ecd6;
+      --indigo-bg: #eef0fb;
+      --indigo-text: #4a4fc4;
+      --indigo-border: #dee1f5;
+      --amber: #b07a17;
+      --amber-light: #fff4e0;
+      --amber-border: #f5e3b8;
+      --red: #c8351f;
+      --red-light: #fdeceb;
+      --red-border: #f5cfc8;
+      --blue-light: var(--indigo-bg);
+      --text-primary: var(--ink);
+      --text-mid: var(--ink-soft);
+      --text-soft: var(--ink-soft);
+      --grey-light: var(--page);
+      --border: var(--line);
+      --white: var(--card);
+      --green-badge-text: #05803a;
+      --amber-badge-text: var(--amber);
+      --red-badge-text: var(--red);
+      --blue-badge-text: var(--indigo-text);
+      --grey-badge-text: var(--ink-soft);
+      --warning-bg: var(--amber-light);
+      --warning-border: var(--amber-border);
+      --warning-text: var(--amber);
       --dark-warning-text: #78350F;
-      --deep-green-hover: #048A3E;
-      --deep-green-active: #065F2E;
+      --deep-green-hover: var(--green-hover);
+      --deep-green-active: #036b34;
       --dark-bg: #1a1a1a;
     }
 
@@ -900,8 +910,18 @@
       body { background: var(--white); }
     }
   </style>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<header class="cxw-topbar">
+  <div class="cxw-topbar-inner">
+    <a class="cxw-brand" href="index.html">
+      <img src="icon.png" alt="" />
+      <span>CX References</span>
+    </a>
+  </div>
+</header>
+
   <div class="site-shell">
     <section class="hero" aria-labelledby="page-title">
       <div class="hero-main">

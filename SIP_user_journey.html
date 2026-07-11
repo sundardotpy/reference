@@ -6,36 +6,40 @@
   <title>SIP User Journey | Internal Training Reference</title>
   <style>
     :root {
-      --green: #05A54B;
-      --green-light: #E8F8EE;
-      --green-mid: #B3E8C9;
-      --green-deep: #048A3E;
-      --green-active: #065F2E;
-      --amber: #F59E0B;
-      --amber-light: #FEF3C7;
-      --amber-text: #92400E;
-      --red: #EF4444;
-      --red-light: #FEE2E2;
-      --red-text: #991B1B;
-      --blue: #3B82F6;
-      --blue-light: #EFF6FF;
-      --blue-text: #1E40AF;
-      --text: #111827;
-      --body: #374151;
-      --soft: #6B7280;
-      --grey: #F9FAFB;
-      --border: #E5E7EB;
-      --white: #FFFFFF;
+      --ink: #202020;
+      --ink-soft: #6b6b6b;
+      --card: #ffffff;
+      --line: #e5e1d8;
+      --page: #faf9f7;
+      --indigo-bg: #eef0fb;
+      --indigo-text: #3c4cb0;
+      --indigo-border: #dee1f5;
+      --green-bg: #e6f7ec;
+      --green-border: #c9ecd6;
+      --green-text: #1a7a42;
+      --amber-bg: #fff4e0;
+      --amber-text: #b07a17;
+      --amber-border: #f5e3b8;
+      --red-bg: #fdeceb;
+      --red-text: #c8351f;
+      --red-border: #f5cfc8;
+      --shadow: 0 16px 44px rgba(32, 32, 32, 0.07);
+      --shadow-soft: 0 12px 24px rgba(32, 32, 32, 0.06);
+
+      --text: var(--ink);
+      --body: var(--ink-soft);
+      --soft: var(--ink-soft);
+      --grey: var(--page);
+      --border: var(--line);
+      --white: var(--card);
       --dark: #1a1a1a;
-      --warning-bg: #FFFBEB;
-      --warning-border: #FDE68A;
-      --warning-text: #92400E;
-      --warning-dark: #78350F;
-      --shadow: 0 16px 42px rgba(17, 24, 39, 0.08);
-      --shadow-soft: 0 8px 24px rgba(17, 24, 39, 0.06);
-      --radius-lg: 28px;
-      --radius-md: 20px;
-      --radius-sm: 14px;
+      --warning-bg: var(--amber-bg);
+      --warning-border: var(--amber-border);
+      --warning-text: var(--amber-text);
+      --warning-dark: #7a5210;
+      --radius-lg: 20px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
     }
 
     * {
@@ -49,7 +53,7 @@
     body {
       margin: 0;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--white);
+      background: var(--page);
       color: var(--body);
       line-height: 1.6;
     }
@@ -60,9 +64,9 @@
       inset: 0;
       z-index: -2;
       background:
-        radial-gradient(circle at 12% 8%, rgba(5, 165, 75, 0.09), transparent 28%),
-        radial-gradient(circle at 86% 0%, rgba(59, 130, 246, 0.07), transparent 24%),
-        linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 42%, #F9FAFB 100%);
+        radial-gradient(circle at 12% 8%, rgba(5, 158, 74, 0.07), transparent 28%),
+        radial-gradient(circle at 86% 0%, rgba(60, 76, 176, 0.06), transparent 24%),
+        linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 42%, #FAF9F7 100%);
     }
 
     body::after {
@@ -71,7 +75,7 @@
       inset: 0;
       z-index: -1;
       opacity: 0.45;
-      background-image: radial-gradient(#E5E7EB 1px, transparent 1px);
+      background-image: radial-gradient(#E5E1D8 1px, transparent 1px);
       background-size: 22px 22px;
       mask-image: linear-gradient(to bottom, black 0%, transparent 62%);
     }
@@ -99,9 +103,9 @@
       height: 420px;
       right: -180px;
       top: -220px;
-      background: var(--green-light);
+      background: var(--indigo-bg);
       border-radius: 50%;
-      border: 1px solid var(--green-mid);
+      border: 1px solid var(--indigo-border);
     }
 
     .hero-grid {
@@ -119,9 +123,9 @@
       margin: 0 0 18px;
       padding: 8px 12px;
       border-radius: 999px;
-      background: var(--green-light);
-      color: var(--green-active);
-      border: 1px solid var(--green-mid);
+      background: var(--indigo-bg);
+      color: var(--indigo-text);
+      border: 1px solid var(--indigo-border);
       font-size: 12px;
       font-weight: 800;
       letter-spacing: 0.08em;
@@ -133,7 +137,7 @@
       height: 8px;
       border-radius: 50%;
       background: var(--green);
-      box-shadow: 0 0 0 5px rgba(5, 165, 75, 0.13);
+      box-shadow: 0 0 0 5px rgba(5, 158, 74, 0.13);
     }
 
     h1, h2, h3, h4 {
@@ -271,15 +275,15 @@
     }
 
     .green-card {
-      background: var(--green-light);
-      border: 1px solid var(--green-mid);
+      background: var(--green-bg);
+      border: 1px solid var(--green-border);
       border-radius: var(--radius-md);
       padding: 22px;
     }
 
     .blue-card {
-      background: var(--blue-light);
-      border: 1px solid rgba(59, 130, 246, 0.25);
+      background: var(--indigo-bg);
+      border: 1px solid var(--indigo-border);
       border-radius: var(--radius-md);
       padding: 22px;
     }
@@ -292,8 +296,8 @@
     }
 
     .danger-card {
-      background: var(--red-light);
-      border: 1px solid rgba(239, 68, 68, 0.25);
+      background: var(--red-bg);
+      border: 1px solid var(--red-border);
       border-radius: var(--radius-md);
       padding: 22px;
     }
@@ -319,41 +323,42 @@
       align-items: center;
       gap: 7px;
       border-radius: 999px;
-      padding: 7px 10px;
+      padding: 5px 12px;
       font-size: 12px;
-      font-weight: 800;
+      font-weight: 700;
       line-height: 1;
       white-space: nowrap;
+      border: 1px solid transparent;
     }
 
     .badge.green {
-      background: var(--green-light);
-      color: #065F2E;
-      border: 1px solid var(--green-mid);
+      background: var(--green-bg);
+      color: var(--green-text);
+      border-color: var(--green-border);
     }
 
     .badge.amber {
-      background: var(--amber-light);
-      color: #92400E;
-      border: 1px solid #FDE68A;
+      background: var(--amber-bg);
+      color: var(--amber-text);
+      border-color: var(--amber-border);
     }
 
     .badge.red {
-      background: var(--red-light);
-      color: #991B1B;
-      border: 1px solid rgba(239, 68, 68, 0.25);
+      background: var(--red-bg);
+      color: var(--red-text);
+      border-color: var(--red-border);
     }
 
     .badge.blue {
-      background: var(--blue-light);
-      color: #1E40AF;
-      border: 1px solid rgba(59, 130, 246, 0.25);
+      background: var(--indigo-bg);
+      color: var(--indigo-text);
+      border-color: var(--indigo-border);
     }
 
     .badge.grey {
       background: var(--grey);
-      color: #4B5563;
-      border: 1px solid var(--border);
+      color: var(--ink-soft);
+      border-color: var(--border);
     }
 
     .journey {
@@ -383,7 +388,7 @@
       top: 50px;
       height: 3px;
       border-radius: 999px;
-      background: var(--green-mid);
+      background: var(--indigo-border);
     }
 
     .step-index {
@@ -397,7 +402,7 @@
       background: var(--green);
       color: var(--white);
       font-weight: 900;
-      box-shadow: 0 10px 22px rgba(5, 165, 75, 0.25);
+      box-shadow: 0 10px 22px rgba(5, 158, 74, 0.25);
       margin-bottom: 34px;
     }
 
@@ -445,7 +450,7 @@
       top: 48px;
       width: 14px;
       height: 2px;
-      background: var(--green-mid);
+      background: var(--indigo-border);
     }
 
     .flow-item:last-child::after {
@@ -460,9 +465,9 @@
       height: 32px;
       padding: 0 10px;
       border-radius: 999px;
-      background: var(--green-light);
-      color: var(--green-active);
-      border: 1px solid var(--green-mid);
+      background: var(--indigo-bg);
+      color: var(--indigo-text);
+      border: 1px solid var(--indigo-border);
       font-weight: 900;
       margin-bottom: 12px;
     }
@@ -537,9 +542,9 @@
       align-items: center;
       justify-content: center;
       border-radius: 14px;
-      background: var(--green-light);
-      color: var(--green-active);
-      border: 1px solid var(--green-mid);
+      background: var(--indigo-bg);
+      color: var(--indigo-text);
+      border: 1px solid var(--indigo-border);
       font-weight: 900;
     }
 
@@ -577,7 +582,7 @@
       width: 300px;
       height: 300px;
       border-radius: 50%;
-      background: rgba(5, 165, 75, 0.24);
+      background: rgba(5, 158, 74, 0.24);
     }
 
     .support-block h2,
@@ -653,9 +658,9 @@
       align-items: center;
       justify-content: center;
       font-weight: 900;
-      background: var(--green-light);
-      color: var(--green-active);
-      border: 1px solid var(--green-mid);
+      background: var(--indigo-bg);
+      color: var(--indigo-text);
+      border: 1px solid var(--indigo-border);
       flex: 0 0 auto;
     }
 
@@ -689,10 +694,10 @@
       border-radius: 50%;
     }
 
-    .status-dot.green { background: var(--green); }
-    .status-dot.amber { background: var(--amber); }
-    .status-dot.red { background: var(--red); }
-    .status-dot.blue { background: var(--blue); }
+    .status-dot.green { background: var(--green-text); }
+    .status-dot.amber { background: var(--amber-text); }
+    .status-dot.red { background: var(--red-text); }
+    .status-dot.blue { background: var(--indigo-text); }
 
     .footer {
       margin-top: 34px;
@@ -787,8 +792,18 @@
       }
     }
   </style>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<header class="cxw-topbar">
+  <div class="cxw-topbar-inner">
+    <a class="cxw-brand" href="index.html">
+      <img src="icon.png" alt="" />
+      <span>CX References</span>
+    </a>
+  </div>
+</header>
+
   <main class="page">
     <section class="hero">
       <div class="hero-grid">
@@ -1228,7 +1243,7 @@
 
     <footer class="footer">
       <div><strong>SIP User Journey</strong> · Internal training and customer-support reference</div>
-      <div>White-first fintech layout · Accent color #05A54B</div>
+      <div>White-first fintech layout · Accent color #059E4A</div>
     </footer> -->
   </main>
 </body>
